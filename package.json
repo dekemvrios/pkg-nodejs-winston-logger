@@ -1,6 +1,6 @@
 {
   "name": "@sintese/nodejs-winston-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "NodeJS logger",
   "main": "src/logger.js",
   "repository": {
