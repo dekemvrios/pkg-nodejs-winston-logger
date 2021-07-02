@@ -1,0 +1,23 @@
+{
+  "name": "@sintese/nodejs-winston-logger",
+  "version": "1.0.0",
+  "description": "NodeJS logger",
+  "main": "src/logger.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelbeecker/nodejs-winston-logger.git"
+  },
+  "keywords": [
+    "logger",
+    "winston"
+  ],
+  "author": "Rafael Becker (https://github.com/rafaelbeecker)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rafaelbeecker/nodejs-winston-logger/issues"
+  },
+  "homepage": "https://github.com/rafaelbeecker/nodejs-winston-logger#readme",
+  "dependencies": {
+    "winston": "^3.3.3"
+  }
+}
