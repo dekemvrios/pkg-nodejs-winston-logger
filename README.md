@@ -1,9 +1,9 @@
-# Node Async Handler
+# NodeJS Winston Logger
 
 [![npm version](https://badge.fury.io/js/%40sintese%2Fnodejs-winston-logger.svg)](https://badge.fury.io/js/%40sintese%2Fnodejs-winston-logger)
 [![Software License][ico-license]](LICENSE.md)
 
-Handler para funções asíncronas abstraindo o uso de chamadas `try/catch`
+Logger simplificado para NodeJS utilizando [winston](https://github.com/winstonjs/winston)
 
 ## Instalando
 
