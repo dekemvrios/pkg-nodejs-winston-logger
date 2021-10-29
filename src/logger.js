@@ -17,16 +17,22 @@ const logger = winston.createLogger({
   ],
 })
 
+let labelPrefix = '';
+
 const info = (message = '', label = 'logger') => {
-  logger.log({ label, message, level: 'info' })
+  logger.log({ label: `${labelPrefix}${label}`, message, level: 'info' })
 }
 
 const warn = (message = '', label = 'logger') => {
-  logger.log({ label, message, level: 'warn' })
+  logger.log({ label: `${labelPrefix}${label}`, message, level: 'warn' })
 }
 
 const error = (message = '', label = 'logger') => {
-  logger.log({ label, message, level: 'error' })
+  logger.log({ label: `${labelPrefix}${label}`, message, level: 'error' })
 }
 
-module.exports = { logger, info, warn, error }
+const setLabelPrefix = (prefix) => {
+  labelPrefix = prefix;
+}
+
+module.exports = { logger, info, warn, error, setLabelPrefix }
