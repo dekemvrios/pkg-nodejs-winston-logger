@@ -5,7 +5,7 @@
 
 Logger simplificado para NodeJS utilizando [winston](https://github.com/winstonjs/winston)
 
-## Instalando
+## Installing
 
 Via npm
 
@@ -13,18 +13,21 @@ Via npm
 $ npm i @sintese/nodejs-winston-logger
 ```
 
-## Usando
+## Usage
 
 ``` nodejs
-const logger = require('@sintese/nodejs-winston-logger');
+// logger.js
+import NodejsWinstonLogger from "@sintese/nodejs-winston-logger";
+const logger = new NodejsWinstonLogger();
 
-logger.info('Quero minha mensagem padronizada', 'Meu Logger')
+// script.js
+logger.info("Quero minha mensagem padronizada", "Meu Logger");
 ```
 
 Irá produzir uma mensagem com o seguinte padrão
 
 ```
-[2021-07-02T19:55:46.737Z] (info) [Meu Logger] Quero minha mensagem padronizada
+[2021-11-04T23:25:35.884Z] (info) [Meu Logger] Quero minha mensagem padronizada
 ```
 
 ## Change log
