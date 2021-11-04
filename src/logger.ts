@@ -11,32 +11,53 @@ const format = ({
   return `[${timestamp}] (${level}) [${label}] ${message}`;
 };
 
-export const logger = winston.createLogger({
-  level: "info",
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    winston.format.printf(format)
-  ),
-  transports: [
-    new winston.transports.Console({
-      format: winston.format.combine(winston.format.printf(format)),
-    }),
-  ],
-});
+class LoggerProvider {
+  private logger: winston.Logger;
 
-let labelOverride = "";
-export const override = (override: string): void => {
-  labelOverride = override;
-};
+  private override: string;
 
-export const info = (message = "", label = "logger"): void => {
-  logger.log({ label: `${labelOverride || label}`, message, level: "info" });
-};
+  public constructor() {
+    this.logger = winston.createLogger({
+      level: "info",
+      format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.printf(format)
+      ),
+      transports: [
+        new winston.transports.Console({
+          format: winston.format.combine(winston.format.printf(format)),
+        }),
+      ],
+    });
+  }
 
-export const warn = (message = "", label = "logger"): void => {
-  logger.log({ label: `${labelOverride || label}`, message, level: "warn" });
-};
+  public label(override: string): void {
+    this.override = override;
+  }
 
-export const error = (message = "", label = "logger"): void => {
-  logger.log({ label: `${labelOverride || label}`, message, level: "error" });
-};
+  public info(message = "", label = "logger"): void {
+    this.logger.log({
+      label: `${this.override || label}`,
+      message,
+      level: "info",
+    });
+  }
+
+  public warn(message = "", label = "logger"): void {
+    this.logger.log({
+      label: `${this.override || label}`,
+      message,
+      level: "warn",
+    });
+  }
+
+  public error(message = "", label = "logger"): void {
+    this.logger.log({
+      label: `${this.override || label}`,
+      message,
+      level: "error",
+    });
+  }
+}
+
+export default LoggerProvider;
