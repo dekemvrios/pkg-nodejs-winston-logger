@@ -14,7 +14,7 @@ const format = ({
 class LoggerProvider {
   private logger: winston.Logger;
 
-  private override: string;
+  public override: string;
 
   public constructor() {
     this.logger = winston.createLogger({
