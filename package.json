@@ -1,12 +1,12 @@
 {
   "name": "@sintese/nodejs-winston-logger",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "NodeJS Winston Logger",
   "main": "dist/logger.js",
   "types": "dist/logger.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafaelbeecker-typs/nodejs-winston-logger.git"
+    "url": "git+https://github.com/martios/nodejs-winston-logger.git"
   },
   "keywords": [
     "logger",
@@ -14,9 +14,9 @@
   ],
   "author": "Rafael Becker (https://github.com/rafaelbeecker)",
   "bugs": {
-    "url": "https://github.com/rafaelbeecker-typs/nodejs-winston-logger/issues"
+    "url": "https://github.com/martios/nodejs-winston-logger/issues"
   },
-  "homepage": "https://github.com/rafaelbeecker-typs/nodejs-winston-logger#readme",
+  "homepage": "https://github.com/martios/nodejs-winston-logger#readme",
   "scripts": {
     "build": "tsc"
   },
