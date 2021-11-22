@@ -1,5 +1,6 @@
 # NodeJS Winston Logger
 
+
 [![npm version](https://badge.fury.io/js/%40sintese%2Fnodejs-winston-logger.svg)](https://badge.fury.io/js/%40sintese%2Fnodejs-winston-logger)
 [![Software License][ico-license]](LICENSE.md)
 
