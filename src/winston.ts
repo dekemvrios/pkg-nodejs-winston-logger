@@ -15,7 +15,7 @@ const createLogger = (transports: string[] = ["console"]): winston.Logger => {
     transportInstances.push(createConsoleTransport());
   }
 
-  if (transportInstances.length) {
+  if (!transportInstances.length) {
     throw new Error("you must have at least one transport format defined");
   }
 
