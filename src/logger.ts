@@ -1,15 +1,11 @@
 import winston from "winston";
+import createLogger from "./winston";
 
-const format = ({
-  level,
-  message,
-  label,
-  timestamp,
-}: {
-  [key: string]: unknown;
-}): string => {
-  return `[${timestamp}] (${level}) [${label}] ${message}`;
-};
+enum LogLevel {
+  INFO = "info",
+  WARN = "warn",
+  ERROR = "error",
+}
 
 class LoggerProvider {
   private logger: winston.Logger;
@@ -17,46 +13,27 @@ class LoggerProvider {
   public override: string;
 
   public constructor() {
-    this.logger = winston.createLogger({
-      level: "info",
-      format: winston.format.combine(
-        winston.format.timestamp(),
-        winston.format.printf(format)
-      ),
-      transports: [
-        new winston.transports.Console({
-          format: winston.format.combine(winston.format.printf(format)),
-        }),
-      ],
-    });
+    this.logger = createLogger();
   }
 
   public label(override: string): void {
     this.override = override;
   }
 
-  public info(message = "", label = "logger"): void {
-    this.logger.log({
-      label: `${this.override || label}`,
-      message,
-      level: "info",
-    });
+  public info(message: string, label = "logger"): void {
+    this.log(message, this.override || label, LogLevel.INFO);
   }
 
-  public warn(message = "", label = "logger"): void {
-    this.logger.log({
-      label: `${this.override || label}`,
-      message,
-      level: "warn",
-    });
+  public warn(message: string, label = "logger"): void {
+    this.log(message, this.override || label, LogLevel.WARN);
   }
 
-  public error(message = "", label = "logger"): void {
-    this.logger.log({
-      label: `${this.override || label}`,
-      message,
-      level: "error",
-    });
+  public error(message: string, label = "logger"): void {
+    this.log(message, this.override || label, LogLevel.ERROR);
+  }
+
+  private log(message: string, label: string, level: LogLevel) {
+    this.logger.log({ label: `${this.override || label}`, message, level });
   }
 }
 

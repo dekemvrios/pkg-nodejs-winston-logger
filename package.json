@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/martios/nodejs-winston-logger#readme",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "husky install"
   },
   "files": [
     "dist/**/*"
